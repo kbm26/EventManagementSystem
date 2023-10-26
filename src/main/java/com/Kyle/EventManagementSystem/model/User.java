@@ -1,14 +1,25 @@
 package com.Kyle.EventManagementSystem.model;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-@Component
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class User {
+    @Id
+    @SequenceGenerator(
+            name ="user_sequence",
+            sequenceName ="user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
+
     private String name;
     private String email;
-    private UUID id;
+    private Long id;
 
     public User() {
     }
@@ -16,7 +27,6 @@ public class User {
     public User(String name, String email) {
         this.name = name;
         this.email = email;
-        this.id = UUID.randomUUID();
     }
 
     public String getName() {
@@ -27,7 +37,7 @@ public class User {
         return email;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 

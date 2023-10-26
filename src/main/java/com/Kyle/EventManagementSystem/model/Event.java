@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Event {
-    private UUID id;
+    private Long id;
     private String name;
     private String type;
     private String location;
@@ -18,11 +18,11 @@ public class Event {
         this.type = type;
         this.location = location;
         this.eventDate = eventDate;
-        this.id = UUID.randomUUID();
+
     }
 
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
