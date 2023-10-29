@@ -4,7 +4,7 @@ package com.Kyle.EventManagementSystem.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="clients")
+@Table(name="Clients")
 public class Client {
     @Id
     @SequenceGenerator(

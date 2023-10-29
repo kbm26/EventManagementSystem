@@ -6,17 +6,17 @@ import jdk.jfr.Enabled;
 import java.time.LocalDate;
 import java.util.UUID;
 @Entity
-@Table(name = "Event")
+@Table(name = "Events")
 public class Event {
     @Id
     @SequenceGenerator(
-            name ="user_sequence",
-            sequenceName ="user_sequence",
+            name ="event_sequence",
+            sequenceName ="event_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
+            generator = "event_sequence"
     )
     private Long id;
     @Column(name="name")
