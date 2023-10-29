@@ -1,7 +1,6 @@
 package com.Kyle.EventManagementSystem.controller;
 
-import com.Kyle.EventManagementSystem.model.User;
-import com.Kyle.EventManagementSystem.repository.UserRepository;
+import com.Kyle.EventManagementSystem.model.Client;
 import com.Kyle.EventManagementSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +11,21 @@ import java.util.List;
 
 @RestController
 public class AuthController {
-    private final UserRepository user;
+    private final UserService user;
 
     @Autowired
-    public AuthController(UserRepository user) {
+    public AuthController(UserService user) {
         this.user = user;
     }
 
     @GetMapping("/")
-    public List<User> index() {
-        return this.user.findAll();
+    public List<Client> index() {
+        return user.getUser();
     }
 
     @GetMapping("/message")
     public String message() {
+        user.saveUser();
         return "Hello AGAIN";
     }
 }
